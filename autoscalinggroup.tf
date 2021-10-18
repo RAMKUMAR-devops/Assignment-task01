@@ -1,9 +1,9 @@
-resource "aws_autoscaling_group" "web_asg" {
-  name                = "web-asg"
+resource "aws_autoscaling_group" "webtierasg" {
+  name                = "webtier-asg"
   max_size            = 2
   min_size            = 1
   desired_capacity    = 2
-  vpc_zone_identifier = [aws_subnet.demo_public_subnet_1.id, aws_subnet.demo_public_subnet_2.id]
+  vpc_zone_identifier = [aws_subnet.my_public_subnet_1.id, aws_subnet.my_public_subnet_2.id]
 
   launch_template {
     id      = aws_launch_template.web_tier_lt.id
