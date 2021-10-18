@@ -8,12 +8,12 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 # Retriving DB credentials from AWS Secret Manager
 
 data "aws_secretsmanager_secret_version" "username" {
-  secret_id = "db_username"
+  secret_id = "rds-username"
 
 }
 
 data "aws_secretsmanager_secret_version" "password" {
-  secret_id = "db_password"
+  secret_id = "rds-password"
 
 }
 
