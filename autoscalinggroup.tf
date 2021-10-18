@@ -6,7 +6,7 @@ resource "aws_autoscaling_group" "webtierasg" {
   vpc_zone_identifier = [aws_subnet.my_public_subnet_1.id, aws_subnet.my_public_subnet_2.id]
 
   launch_template {
-    id      = aws_launch_template.web_tier_lt.id
+    id      = aws_launch_template.web_tier_template.id
     version = "$Latest"
   }
 
@@ -30,7 +30,7 @@ resource "aws_autoscaling_group" "apptierasg" {
   vpc_zone_identifier = [aws_subnet.my_private_subnet_1.id, aws_subnet.my_private_subnet_2.id]
 
   launch_template {
-    id      = aws_launch_template.app_tier_lt.id
+    id      = aws_launch_template.app_tier_template.id
     version = "$Latest"
   }
 
