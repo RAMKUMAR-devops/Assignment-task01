@@ -1,6 +1,6 @@
 resource "aws_iam_policy" "ec2_policy" {
   name        = "ec2_policy"
-  description = "An EC2 policy for accessing rds, s3 and cloudwatch"
+  description = "An EC2 policy for accessing rds, s3 ,dynamo db and cloudwatch"
   policy      = file("ec2policy.json")
 }
 
