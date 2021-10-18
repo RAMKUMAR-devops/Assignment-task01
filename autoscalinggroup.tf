@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "webtierasg" {
-  name                = "webtier-asg"
+  name                = "webtier-autoscalinggroup"
   max_size            = 2
   min_size            = 1
   desired_capacity    = 2
@@ -23,7 +23,7 @@ resource "aws_autoscaling_attachment" "web_asg_attachment" {
 
 
 resource "aws_autoscaling_group" "apptierasg" {
-  name                = "apptier-asg"
+  name                = "apptier-autoscalinggroup"
   max_size            = 2
   min_size            = 1
   desired_capacity    = 2
