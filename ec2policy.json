@@ -8,7 +8,7 @@
                 "rds:*",
                 "cloudwatch:*",
                 "s3:*",
-                "secretsmanager:ListSecrets"
+                "dynamodb:*"
             ],
             "Resource": "*"
         }
