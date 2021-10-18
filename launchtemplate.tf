@@ -39,7 +39,7 @@ resource "aws_launch_template" "web_tier_lt" {
     }
   }
 
-  user_data = base64encode(file("./user-data.sh"))
+  user_data = base64encode(file("user-data.sh"))
 
 }
 
@@ -67,6 +67,6 @@ resource "aws_launch_template" "app_tier_lt" {
     }
   }
 
-  user_data = base64encode(file("./user-data.sh"))
+  user_data = base64encode(file("user-data.sh"))
 
 }
