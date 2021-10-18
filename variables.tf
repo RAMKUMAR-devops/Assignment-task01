@@ -18,14 +18,27 @@ variable "rds_admin" {
 }
 
 # RDS Credentials 
-locals {
-  db_username = jsondecode(
-    data.aws_secretsmanager_secret_version.username.secret_string
-  )
+#locals {
+ # db_username = jsondecode(
+  #  data.aws_secretsmanager_secret_version.username.secret_string
+  #)
+#}
+
+#locals {
+ # db_password = jsondecode(
+  #  data.aws_secretsmanager_secret_version.password.secret_string
+  #)
+#}
+variable "rds_username" {
+  type        = string
+  description = "username for rds admin user"
+  default     = "admin"
+ # sensitive   = true
 }
 
-locals {
-  db_password = jsondecode(
-    data.aws_secretsmanager_secret_version.password.secret_string
-  )
+variable "rds_password" {
+  type        = string
+  description = "username for rds admin user"
+  default     = "admin"
+  sensitive   = true
 }
