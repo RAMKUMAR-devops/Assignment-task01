@@ -6,10 +6,10 @@ output "private_lb_endpoint" {
   value = aws_lb.private_lb.dns_name
 }
 
-output "app_endpoint_private" {
+output "apptier_endpoint_private" {
   value = aws_route53_record.apptier.name
 }
 
-output "db_endpoint_private" {
+output "dbtier_endpoint_private" {
   value = aws_route53_record.dbtier.name
 }
