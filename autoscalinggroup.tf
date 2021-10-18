@@ -17,7 +17,7 @@ resource "aws_autoscaling_group" "webtierasg" {
 }
 
 resource "aws_autoscaling_attachment" "web_asg_attachment" {
-  alb_target_group_arn   = aws_alb_target_group.web_target_group.arn
+  alb_target_group_arn   = aws_alb_target_group.webtier_target_group.arn
   autoscaling_group_name = aws_autoscaling_group.webtierasg.id
 }
 
@@ -37,6 +37,6 @@ resource "aws_autoscaling_group" "apptierasg" {
 }
 
 resource "aws_autoscaling_attachment" "app_asg_attachment" {
-  alb_target_group_arn   = aws_alb_target_group.app_target_group.arn
+  alb_target_group_arn   = aws_alb_target_group.apptier_target_group.arn
   autoscaling_group_name = aws_autoscaling_group.apptierasg.id
 }
