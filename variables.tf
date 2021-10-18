@@ -25,7 +25,7 @@ locals {
 }
 
 locals {
-  db_creds = jsondecode(
+  db_password = jsondecode(
     data.aws_secretsmanager_secret_version.password.secret_string
   )
 }
