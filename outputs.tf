@@ -7,9 +7,9 @@ output "private_lb_endpoint" {
 }
 
 output "app_endpoint_private" {
-  value = aws_route53_record.app.name
+  value = aws_route53_record.apptier.name
 }
 
 output "db_endpoint_private" {
-  value = aws_route53_record.db.name
+  value = aws_route53_record.dbtier.name
 }
