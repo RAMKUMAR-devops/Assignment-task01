@@ -28,6 +28,6 @@ variable "rds_username" {
 variable "rds_password" {
   type        = string
   description = "username for rds admin user"
-  default     = "admin"
+  default     = "admin1234"
   sensitive   = true
 }
