@@ -7,9 +7,6 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
   }
 }
 
-
-
-
 resource "aws_db_instance" "rds" {
   identifier             = "rds"
   allocated_storage      = 10
