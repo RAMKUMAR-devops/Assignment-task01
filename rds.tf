@@ -8,12 +8,12 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 # Retriving DB credentials from AWS Secret Manager
 
 data "aws_secretsmanager_secret_version" "username" {
-  secret_id = "db-username"
+  secret_id = "db_username"
 
 }
 
 data "aws_secretsmanager_secret_version" "password" {
-  secret_id = "db-password"
+  secret_id = "db_password"
 
 }
 
@@ -28,7 +28,7 @@ resource "aws_db_instance" "rds" {
   db_subnet_group_name   = aws_db_subnet_group.rds_subnet_group.id
   vpc_security_group_ids = ["${aws_security_group.rds_sg.id}"]
   username               = local.db_username.username
-  password               = local.db_creds.password
+  password               = local.db_password.password
 
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
