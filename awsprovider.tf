@@ -17,6 +17,6 @@ terraform {
     bucket = "terraformbackend01"
     key = "LockID"
     region = "us-east-1"
-    dynamodb_table = "terraform-lock"
+    dynamodb_table = "terraform-locking"
   }
 }
