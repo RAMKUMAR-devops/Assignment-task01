@@ -1,6 +1,3 @@
-############################################
-# Create web tier auto scaling group
-############################################
 resource "aws_autoscaling_group" "web_asg" {
   name                = "web-asg"
   max_size            = 2
@@ -24,9 +21,7 @@ resource "aws_autoscaling_attachment" "web_asg_attachment" {
   autoscaling_group_name = aws_autoscaling_group.web_asg.id
 }
 
-############################################
-# Create app tier auto scaling group
-############################################
+
 resource "aws_autoscaling_group" "app_asg" {
   name                = "app-asg"
   max_size            = 2
