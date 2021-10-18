@@ -1,7 +1,7 @@
 
 resource "aws_key_pair" "tcs_server_key" {
   key_name   = "tcs_server_key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDfiDNxGlf4J5OBZ2skHJnt1TwrzPdJ91br/iakg5RfeQDN0ZmfWYJH3kv6mPc4VSJMIlFRE1CFp1paWqr4fOEQZlZaaf0KlaidTumj2i4IPyO3hBNHq0baTdDlBThQwM5WSv65u5QLGQ/jW5tQCOvucBMeS2zc6399sVOonj6ujOdy98xo0k7Ca2tRR1T/247ZlIKMsGzKxjwFy2KboPDmBU6szUMkmUwhTqnLCZZ4DiUU3rRnHTWqi8m1aViQTQYuEiRfHMmerDwYaAiXONqQRYstcuyvIB6odLrqccZvyYhVEm1i5nU/b7kQfj7nNi7q9+7BK+X6HV/bp8cv4O7kcLov25y/l5+3NdSalr8JFoxYR8x14SmYnAk6Muy/c/eMnVlCGrpatNgEejc4Nl+g/tPi0rxsujM4mwb000cXioIk9aqPhYgtspeAUf47M2CXE0ygVFhTY7owjcW92mpfXwvzas2VBGy5D8q3KOGMALyGr/EG6eTr8XkoAYEW07c= admin@example.com"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbb71xvhhu17PzSHNMGtUeoo1cEiw0HTW370njTBHiq/MRameGBAab75veiZPEV/oemcIg6STzLl9yPNlr6gm4vWaViyNnEGWaH1CPXwhbT//TMsjMVAc0wlyENlLMt6ttZ/FzVYe/if5lW6124/YDQXyq8pbPsBpIXiF+4IW259er0boL6Oy5Aw1xMujZPnxykyozfZ/tNjUOZncsl7YJ+TxX6yDpOcGXbT5put0sAGI39SVw1LrO1ub1Xat05Oc71+SktwSjMQ/L3p2wULEwaZvlO/iATKOenRcwiBp0f4kJduP5ButVTHkgJPI9Qadumrh6qSJ+lRfT3S0heYR1 root@ip-172-31-23-185.ec2.internal"
 }
 
 data "aws_ami" "amazon_linux_2" {
@@ -39,7 +39,7 @@ resource "aws_launch_template" "web_tier_lt" {
     }
   }
 
-  user_data = base64encode(file("user-data.sh"))
+  user_data = base64encode(file("userdata.sh"))
 
 }
 
@@ -67,6 +67,6 @@ resource "aws_launch_template" "app_tier_lt" {
     }
   }
 
-  user_data = base64encode(file("user-data.sh"))
+  user_data = base64encode(file("userdata.sh"))
 
 }
