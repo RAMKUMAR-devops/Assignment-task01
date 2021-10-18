@@ -1,13 +1,13 @@
 resource "aws_route53_zone" "private_route53_zone" {
-  name = "example.com"
+  name = "ramkumar.in"
   vpc {
-    vpc_id = aws_vpc.demovpc.id
+    vpc_id = aws_vpc.myvpc.id
   }
 }
 
-resource "aws_route53_record" "app" {
+resource "aws_route53_record" "apptier" {
   zone_id = aws_route53_zone.private_route53_zone.zone_id
-  name    = "app.example.com"
+  name    = "apptier.ramkumar.in"
   type    = "A"
 
   alias {
@@ -18,9 +18,9 @@ resource "aws_route53_record" "app" {
 }
 
 
-resource "aws_route53_record" "db" {
+resource "aws_route53_record" "dbtier" {
   zone_id = aws_route53_zone.private_route53_zone.zone_id
-  name    = "db.example.com"
+  name    = "dbtier.ramkumar.in"
   type    = "CNAME"
   records = ["${aws_db_instance.rds.address}"]
   ttl     = 300
