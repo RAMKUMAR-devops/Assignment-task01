@@ -2,22 +2,14 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
   name       = "rds-subnet-group"
   subnet_ids = [aws_subnet.my_private_subnet_1.id, aws_subnet.my_private_subnet_2.id]
 
-  tags = { Name = "RDS DB subnet group" }
+  tags = { 
+    Name = "RDS DB subnet group" 
+  }
 }
 
-# Retriving DB credentials from AWS Secret Manager
 
-#data "aws_secretsmanager_secret_version" "username" {
- # secret_id = "rds-username"
 
-#}
 
-#data "aws_secretsmanager_secret_version" "password" {
- # secret_id = "rds-password"
-
-#}
-
-#Creating mysql rds instances
 resource "aws_db_instance" "rds" {
   identifier             = "rds"
   allocated_storage      = 10
