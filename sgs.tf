@@ -1,10 +1,7 @@
-############################################
-# Create public load balancer security group
-############################################
 resource "aws_security_group" "public_lb_sg" {
   name        = "public-lb-sg"
   description = "Security group for public load balancer"
-  vpc_id      = aws_vpc.demovpc.id
+  vpc_id      = aws_vpc.myvpc.id
 
   tags = { Name = "public-lb-sg" }
 }
@@ -39,13 +36,11 @@ resource "aws_security_group_rule" "public_lb_sg_igress_443" {
   description       = "Allow all traffic on 443"
 }
 
-############################################
-# Create private load balancer security group
-############################################
+
 resource "aws_security_group" "private_lb_sg" {
   name        = "private-lb-sg"
   description = "Security group for private load balancer"
-  vpc_id      = aws_vpc.demovpc.id
+  vpc_id      = aws_vpc.myvpc.id
 
   tags = { Name = "private-lb-sg" }
 }
@@ -70,15 +65,15 @@ resource "aws_security_group_rule" "private_lb_sg_igress_80" {
   description              = "Allow traffic from web tier sg to private load balancer port 80"
 }
 
-############################################
-# Create web tier security group
-############################################
+
 resource "aws_security_group" "web_sg" {
   name        = "web-sg"
   description = "Security group for web tier"
-  vpc_id      = aws_vpc.demovpc.id
+  vpc_id      = aws_vpc.myvpc.id
 
-  tags = { Name = "web-sg" }
+  tags = { 
+    Name = "web-sg"
+  }
 }
 
 resource "aws_security_group_rule" "web_sg_egress" {
@@ -111,15 +106,14 @@ resource "aws_security_group_rule" "web_sg_igress_22" {
   description       = "Allow ssh from my ip"
 }
 
-############################################
-# Create app tier security group
-############################################
 resource "aws_security_group" "app_sg" {
   name        = "app-sg"
   description = "Security group for app tier"
-  vpc_id      = aws_vpc.demovpc.id
+  vpc_id      = aws_vpc.myvpc.id
 
-  tags = { Name = "app-sg" }
+  tags = { 
+    Name = "app-sg" 
+  }
 }
 
 resource "aws_security_group_rule" "app_sg_egress" {
@@ -152,13 +146,11 @@ resource "aws_security_group_rule" "app_sg_igress_22" {
   description              = "Allow ssh from my web tier security group"
 }
 
-############################################
-# Create database tier security group
-############################################
+
 resource "aws_security_group" "rds_sg" {
   name        = "rds-sg"
   description = "Security group for database tier"
-  vpc_id      = aws_vpc.demovpc.id
+  vpc_id      = aws_vpc.myvpc.id
 
   tags = { Name = "rds-sg" }
 }
