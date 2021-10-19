@@ -8,7 +8,7 @@ It provisions the following resources in AWS.
 2.MysqlRDS provisioned in the private subnet
 <img width="1680" alt="rds" src="https://user-images.githubusercontent.com/59164612/137837804-2f829629-5c1f-4413-9bde-a094b6eddd9a.png">
 
-3.Web tier and app tier servers deployed in the public subnet
+3.Web tier and app tier servers deployed in the public subnet and private subnets respectively.
 <img width="1680" alt="ec2servers" src="https://user-images.githubusercontent.com/59164612/137837977-08f440d2-643c-460f-b47e-13b0017df6ca.png">
 
 4.2 Load balancers along with their target groups.
