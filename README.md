@@ -1,12 +1,13 @@
 # Assignment-task01
 This repo contains Infrastructure as a code script using terraform to provision a 3-tier application in AWS.
-AWS Services used:
-1.VPC
-2.EC2,LOAD BALANCERS,AUTO SCALING
-3.RDS
-4.ROUTE53
-5.S3
-6.DYNAMO DB
+
+AWS Services used:  
+1.VPC.  
+2.EC2,LOAD BALANCERS,AUTO SCALING.  
+3.RDS.  
+4.ROUTE53.  
+5.S3.  
+6.DYNAMO DB.  
 
 It provisions the following resources in AWS.
 1. A VPC with 2 public and private subnets ,1 internet gateway , 1 nat gateway, 2 route tables along with their subnet associations ,NACL and secuirty groups.
